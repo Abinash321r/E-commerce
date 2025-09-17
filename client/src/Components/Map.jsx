@@ -1,8 +1,6 @@
 import React from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 function Map() {
-    //AIzaSyDtTcVqWV9GuCNIvF6Yw46kQOvsqbJMpeg
-
     const mapContainerStyle = {
         width: '100%',
         height: '400px',
