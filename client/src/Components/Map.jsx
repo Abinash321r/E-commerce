@@ -12,7 +12,7 @@ function Map() {
         lng: 85.2807,
       };
   return (
-    <LoadScript googleMapsApiKey="AIzaSyDtTcVqWV9GuCNIvF6Yw46kQOvsqbJMpeg">
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_API_URL}>
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={15}

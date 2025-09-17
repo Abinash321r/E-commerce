@@ -12,3 +12,4 @@ server/build/
 
 # Ignore environment files
 server/.env
+client/.env
