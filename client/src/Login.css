@@ -1,0 +1,187 @@
+body#container{
+   
+    background-image: url(./3409297.jpg);
+}
+#container{
+   position: relative;
+   /* background-color: white; */
+   width: 100%;
+   color: aliceblue;
+   height: 100dvh;
+  
+   background: linear-gradient(270deg,purple,violet,orange 165%,yellow 182%); 
+}
+#title{
+    text-align: justify;
+    text-align-last: center;
+ /*  height: 90px;*/
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color:white;
+   padding-top: 37px;
+}
+#login{
+   position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(89deg,purple,violet,orange,yellow);
+    height: 65dvh;
+    width: 80%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    /* border: 0.5px solid black; */
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    color: black;
+    
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    height: 20vdh;
+    width: 200px;
+    align-items: center;
+}
+.form>div{
+    display: flex;
+    gap: 10px;
+    padding-bottom: 5px;
+}
+.form>div>svg{
+   background-color: transparent;
+   color: white;
+}
+#loginbtn,#signupbtn{
+    cursor: pointer;
+    width: 200px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: 2px solid white;
+    font-size: 18px;
+    font-family: cursive;
+}
+.header{
+    text-align: center;
+    color: white;
+}
+div#name {
+    border-bottom: 2px solid white;
+}
+div#password {
+    border-bottom: 2px solid white;
+}
+div#phone {
+    border-bottom: 2px solid white;
+}
+.form>div>input{
+    width: 200px;
+    height: 25px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    background-color: transparent;
+    font-size: 18px;
+    font-family: cursive;
+}
+.form>div>input::placeholder{
+color: white;
+text-align: start;
+}
+
+.form>#invalid{
+    border-bottom: 2px solid white;
+}
+.form>#invalid>input::placeholder{
+    color: red;
+    text-align: start;
+    }
+
+#logoutdiv{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    top: 10px;
+    left: 90%;
+}
+#logout{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: white;
+    /*border-bottom: 2px solid white;*/
+    font-size: 18px;
+    font-family: cursive;
+   
+}
+#logoutdiv:hover{
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #70708e;
+}
+#logoutdiv>#logoutooltip{
+   display: none; 
+}
+#logoutdiv:hover>#logoutooltip{
+    display: block;
+    position: absolute;
+    background-color: #70708e;
+    height: 28px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    top: 55px;
+    
+   
+}
+#logout>svg{
+    background-color: transparent;
+    color: white;
+}
+@media screen and (max-width:1065px){
+    #login{
+        width: 90%;
+        height: 60dvh;
+    }
+}
+@media screen and (max-width:610px){
+    #title{
+        font-size: 10px;
+        padding-top: 85px;
+    }
+    #login{
+        font-size: 12px;
+    }
+    .form>div>input {
+        font-size: 14px;  
+    }
+    #loginbtn, #signupbtn {
+        font-size: 14px; 
+    }
+    #logoutdiv:hover>#logoutooltip{
+        top:50%;
+       left: -250%;
+       transform: translateY(-50%);
+    }
+    #logoutdiv{
+        height: 25px;
+        width: 25px;
+        padding-top: 5px;
+    }
+    #logoutdiv:hover{
+        border-radius: 10%;
+    }
+
+}

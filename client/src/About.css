@@ -1,0 +1,26 @@
+#aboutcontainer{
+    width: 100%;
+    height:100%;
+    overflow-y: scroll;
+    background: linear-gradient(272deg,#e710e7 59%,#f1a1a1 100%,#d4d4d4 118%);
+
+}
+#aboutcontainer>div{
+    text-align: justify;
+    padding: 25px;
+}
+
+h3{
+    color: purple;
+}
+li {
+    font-size: 17px;
+    color: #ffffffba;
+}
+p {
+    font-size: 17px;
+    color: #ffffffba;
+} 
+span{
+    color: white;
+} 
