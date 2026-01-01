@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bull": "^4.16.5",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
@@ -21,6 +22,7 @@
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.3.2",
     "nodemailer": "^6.9.7",
+    "redis": "^5.10.0",
     "stripe": "^14.5.0"
   }
 }
