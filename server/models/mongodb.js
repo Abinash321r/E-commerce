@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import 'dotenv/config';
 
-mongoose.connect(`${process.env.DATABASE_URL}`).then(()=>
+mongoose.connect(process.env.DATABASE_URL,{ family: 4 }).then(()=>
 console.log('database connected sucessfully')).catch((error)=>
 console.log('error'))
 

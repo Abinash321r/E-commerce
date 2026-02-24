@@ -1,8 +1,9 @@
 import Bull from "bull";
 import { transporter } from "../Middlewares/Transporter.js";
+import 'dotenv/config';
 
 const emailQueue = new Bull("email-queue", {
-  redis: { host: "127.0.0.1", port: 6379 },
+  redis: { host:`${process.env.REDIS_HOST}`, port: `${process.env.REDIS_PORT}` },
 });
 
 // Job Processor
