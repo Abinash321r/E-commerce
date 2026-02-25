@@ -8,5 +8,3 @@
     pass: process.env.TRANSPORTER_PASSWORD,
   },
 });
-
-Password
