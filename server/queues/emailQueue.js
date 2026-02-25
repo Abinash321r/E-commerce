@@ -18,10 +18,15 @@ emailQueue.client
 emailQueue.process(async (job) => {
   console.log(" Processing job:", job.id);
 
-  const { mailOptions } = job.data;
-  await transporter.sendMail(mailOptions);
-
-  console.log(" Email sent successfully!");
+  try {
+    const { mailOptions } = job.data;
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully!");
+    console.log("Message ID:", info.messageId);
+  } catch (err) {
+    console.error("Email sending failed:", err);
+    throw err; // important so Bull marks job failed
+  }
 });
 
 emailQueue.on("error", (err) => {
