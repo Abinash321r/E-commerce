@@ -12,7 +12,7 @@ if (process.env.REDIS_URL) {
       url: process.env.REDIS_URL
     },
   });
-} else {
+}/* else {
   emailQueue = new Bull("email-queue", {
     redis: {
       host: process.env.REDIS_HOST || "127.0.0.1",
@@ -20,7 +20,7 @@ if (process.env.REDIS_URL) {
     },
   });
 }
-
+*/
 emailQueue.client
   .ping()
   .then((res) => console.log(" Redis connected:", res))
