@@ -45,7 +45,7 @@ const [validname,setValidName]=useState(true)
       return;
     }
     else{
-      axios.post("http://localhost:5000/sendmail",contact,{withCredentials:true}).then(res=>{
+      axios.post(`${process.env.REACT_APP_SERVER_URL}/sendmail`,contact,{withCredentials:true}).then(res=>{
         console.log('data transfered')
         console.log(res.data)
         window.alert('sucessfully email sent')

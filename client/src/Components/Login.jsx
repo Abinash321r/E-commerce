@@ -30,7 +30,7 @@ setShowPassword(!showpassword)
   }
   const logout=()=>{
     //localStorage.setItem('isAuth',false)
-    axios.get('http://localhost:5000/logout',{withCredentials:true}).then(res=>{
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/logout`,{withCredentials:true}).then(res=>{
       stateHandler();
       console.log(res.data)
       window.alert('you are logged out')
@@ -61,7 +61,7 @@ const apihandler=(event)=>{
     return;
   }
   else{
-    axios.post("http://localhost:5000/data",user,{withCredentials:true}).then(res=>{
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/data`,user,{withCredentials:true}).then(res=>{
       console.log('data transfered')
       console.log(res.data)
       stateHandler();

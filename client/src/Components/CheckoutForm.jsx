@@ -22,7 +22,7 @@ function CheckoutForm() {
     {
         const cart=state.quantity;
         console.log(cart)
-        axios.post('http://localhost:5000/create-checkout-session',cart,{withCredentials:true}).then(res=>{
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/create-checkout-session`,cart,{withCredentials:true}).then(res=>{
             setClientSecret(res.data.clientSecret);
         console.log(res.data.clientSecret)
        }).catch(error=>

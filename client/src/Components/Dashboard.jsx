@@ -62,7 +62,7 @@ const options2={
 }
 }
 useEffect(()=>{
-  axios.get('http://localhost:5000/dashboard',{withCredentials:true}).then(res=>{
+  axios.get(`${process.env.REACT_APP_SERVER_URL}/dashboard`,{withCredentials:true}).then(res=>{
     console.log(res.data)
     const data=res.data;
     const label=data.map((title)=>title.title)

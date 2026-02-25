@@ -44,7 +44,7 @@ function Router({counter,routelocation}) {
         setState(!state)
       }
       useEffect(()=>{
-        axios.get('http://localhost:5000/api',{withCredentials:true}).then(res=>{
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/api`,{withCredentials:true}).then(res=>{
           console.log(res.data)
           setIsAuthenticated(res.data.isAuthenticated)
           setIsAdmin(res.data.isAdmin)
