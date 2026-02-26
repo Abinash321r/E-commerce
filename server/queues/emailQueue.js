@@ -7,9 +7,15 @@ console.log("Email queue worker starting...");
 const redisUrl = process.env.REDIS_URL;
 
 console.log("Using Redis URL:", redisUrl); // debug log
+const emailQueue = new Bull("email-queue", redisUrl); //for  interal redis url
 
-const emailQueue = new Bull("email-queue", redisUrl);
-
+/*
+const emailQueue = new Bull("email-queue", redisUrl, {
+  redis: {
+    tls: {} //  REQUIRED for rediss:// (Render SSL) external url 
+  }
+});
+*/
 emailQueue.client
   .ping()
   .then((res) => console.log(" Redis connected:", res))
