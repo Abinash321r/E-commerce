@@ -1,5 +1,5 @@
 
-import {transporter} from '../Middlewares/Transporter.js'
+import emailQueue from "../queues/emailQueue.js"
 import stripePackage from 'stripe';
 import { Users,Checkout} from "../models/mongodb.js";
 import 'dotenv/config';
@@ -28,20 +28,27 @@ if(session.status!=='open'){
    console.log('data transfered sucessfully')
 
   const mailOptions = {
-    from: `${process.env.TRANSPORTER_EMAIL}`, // replace with your Gmail email
     to: session.customer_details.email,
     subject: 'Subject:regarding payment',
     text: `Dear ${session.customer_details.name},\n\nThank you for reaching out to us.\n\n Your order has been received.\n\nMessage:We will get back to you as soon as possible in your address ${session.customer_details.address.line2},${session.customer_details.address.line1},${session.customer_details.address.city}.\n\nBest regards,\nMY REACT FIRST APP`,
   };
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.json({ message: 'Form submitted successfully. Thank you!' });
-    }
+
+  try {
+  await emailQueue.add({ mailOptions });
+  console.log("Email queued successfully");
+  return res.json({
+    success: true,
+    message: "Order confirmed. Email will be sent shortly.",
   });
+
+} catch (error) {
+  console.error("Queue error:", error);
+  return res.status(500).json({
+    success: false,
+    message: "Failed to queue email",
+  });
+}
+
 }
   res.send({
     status: session.status,
