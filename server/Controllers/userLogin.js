@@ -15,6 +15,8 @@ const getLoginData = async(req, res) => {
     const usertoken=jwt.sign({_id:user._id},`${process.env.JWT_TOKEN}`)
     res.cookie("usertoken",usertoken, {
       httpOnly: true,
+      sameSite: "none",
+      secure: true, // set true in production
       expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     });
     res.send('user exist')
@@ -33,6 +35,8 @@ const getLoginData = async(req, res) => {
    console.log(usertoken)
     res.cookie("usertoken", usertoken, {
         httpOnly: true,
+      sameSite: "none",
+      secure: true, // set true in production
         expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       });
    // res.json(data)
