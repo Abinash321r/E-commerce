@@ -1,5 +1,5 @@
 import Bull from "bull";
-import { transporter } from "../Middlewares/Transporter.js";
+import { sendEmail } from "../Middlewares/Transporter.js";
 import "dotenv/config";
 
 console.log("Email queue worker starting...");
@@ -26,7 +26,7 @@ emailQueue.process(async (job) => {
 
   try {
     const { mailOptions } = job.data;
-    const info = await transporter.sendMail(mailOptions);
+    const info = await sendEmail(mailOptions);
     console.log("Email sent successfully!");
     console.log("Message ID:", info.messageId);
   } catch (err) {
