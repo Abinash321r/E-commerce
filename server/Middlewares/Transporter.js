@@ -1,14 +1,26 @@
-import { Resend } from "resend";
-import "dotenv/config";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import emailjs from '@emailjs/nodejs';
+import 'dotenv/config';
 
 export const sendEmail = async (mailOptions) => {
-  return await resend.emails.send({
-    from: `${process.env.SENDER_EMAIL}`, //  Resend default sender
-    to: mailOptions.to,
-    subject: mailOptions.subject,
-    text: mailOptions.text,
-    html: mailOptions.html, // optional
-  });
+  try {
+    const response = await emailjs.send(
+      process.env.EMAILJS_SERVICE_ID,    
+      process.env.EMAILJS_TEMPLATE_ID,   
+      {
+        email: mailOptions.to,
+        subject: mailOptions.subject,
+        message: mailOptions.text || mailOptions.html,
+      },
+      {
+        publicKey: process.env.EMAILJS_PUBLIC_KEY,
+        privateKey: process.env.EMAILJS_PRIVATE_KEY, // Highly recommended for backend security
+      }
+    );
+    
+    console.log('SUCCESS!', response.status, response.text);
+    return response;
+  } catch (error) {
+    console.error('FAILED...', error);
+    throw error;
+  }
 };
