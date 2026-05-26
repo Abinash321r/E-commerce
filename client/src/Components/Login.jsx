@@ -12,9 +12,9 @@ function Login({stateHandler,routelocation}) {
   const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{3,}$/;
   const phoneRegex = /^\d{9,}$/;
   const [user,setUser]=useState({
-   name:'',
-   password:'',
-   phone:'' 
+   name:'Abinash Nepali',
+   password:'#aZsXdC123',
+   phone:9856004040 
   })
   const [validname,setValidName]=useState(true)
   const [validpassword,setValidPassword]=useState(true)

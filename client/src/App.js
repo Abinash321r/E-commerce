@@ -9,6 +9,7 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import{FaBars}  from "react-icons/fa";
 import Router from './Components/Router';
 import InfoIcon from '@mui/icons-material/Info';
+import Swal from "sweetalert2";
 //import axios from 'axios';
 function App() {
   
@@ -30,7 +31,16 @@ setRegister(islocation==='registerr'?'registerr':'')
 
 }
  useEffect(()=>{
-  
+  const alreadyShown = sessionStorage.getItem("cookies_popup_shown"); 
+    if (!alreadyShown) {
+    Swal.fire({
+    icon: "info",
+    title: "Cookies Required",
+    text: "Please Check and Enable third-party cookies to access all features.\n Some features may not work properly otherwise.",
+    confirmButtonText: "OK"
+  })
+  sessionStorage.setItem("cookies_popup_shown", "true");
+  };
 const setwidth=()=>{
   if(window.innerWidth<=610)
   {

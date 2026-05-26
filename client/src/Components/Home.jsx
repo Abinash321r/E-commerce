@@ -37,7 +37,9 @@ setState(false)
     <>
     <div id="hello">
       <Searchbar/>
-     {sekeleton? <LoadingSkeleton/>:<div className='elementcontainer'>
+      <LoadingSkeleton/>
+      
+     {/*sekeleton? <LoadingSkeleton/>:<div className='elementcontainer'>
         {
           products.slice().map((product,index)=>{
            // console.log(product.image)
@@ -59,7 +61,7 @@ setState(false)
 
           })
         }
-        </div>}
+        </div>*/}
     </div>
     </>
   )
