@@ -62,10 +62,10 @@ const apihandler=(event)=>{
   }
   else{
     axios.post(`${process.env.REACT_APP_SERVER_URL}/data`,user,{withCredentials:true}).then(res=>{
-     if(res.ok){
+     if(res.status === 200){
       console.log('data transfered')
         axios.get(`${process.env.REACT_APP_SERVER_URL}/api`,{withCredentials:true}).then(response=>{
-          if(response.ok){
+          if(response.status === 200){
         console.log(response?.data)
           if(response?.data?.isAuthenticated)
           {
