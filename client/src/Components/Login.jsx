@@ -62,19 +62,37 @@ const apihandler=(event)=>{
   }
   else{
     axios.post(`${process.env.REACT_APP_SERVER_URL}/data`,user,{withCredentials:true}).then(res=>{
+     if(res.ok){
       console.log('data transfered')
-      console.log(res.data)
-      stateHandler();
-      window.alert('sucessfully logged in')
-      setValidName(true)
-    setValidPassword(true)
-    setValidPhone(true)
-    setUser({...user,name:'',password:'',phone:''})
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/api`,{withCredentials:true}).then(response=>{
+          if(response.ok){
+        console.log(response?.data)
+          if(response?.data?.isAuthenticated)
+          {
+          stateHandler();
+          window.alert('sucessfully logged in')
+          setValidName(true)
+          setValidPassword(true)
+          setValidPhone(true)
+          setUser({...user,name:'',password:'',phone:''})
+          }
+        }
+        else
+        {
+         window.alert('something went wrong')
+        }
+       }).catch(error=>{
+      window.alert('something went wrong')
+    })
+  }
+  else{
+    window.alert('something went wrong')
+  }
       //localStorage.setItem('isAuth','')
      // localStorage.setItem('isAuth',res.data.isAuthenticated)
       //destroyer(res.data.isAuthenticated)
     }).catch(error=>{
-      console.log('error')
+      window.alert('something went wrong')
     })
     
   }

@@ -33,12 +33,15 @@ setRegister(islocation==='registerr'?'registerr':'')
  useEffect(()=>{
   const alreadyShown = sessionStorage.getItem("cookies_popup_shown"); 
     if (!alreadyShown) {
+    setTimeout(()=>{
     Swal.fire({
     icon: "info",
     title: "Cookies Required",
     text: "Please Check and Enable third-party cookies to access all features.\n Some features may not work properly otherwise.",
-    confirmButtonText: "OK"
+    confirmButtonText: "OK",
+    heightAuto: false
   })
+  },100)
   sessionStorage.setItem("cookies_popup_shown", "true");
   };
 const setwidth=()=>{
