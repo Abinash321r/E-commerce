@@ -30,16 +30,15 @@ console.log(' route changed')
 routelocation('')
 setState(false)
 };
-
+ //  <LoadingSkeleton/>
   },[])
   
   return (
     <>
     <div id="hello">
       <Searchbar/>
-      <LoadingSkeleton/>
-      
-     {/*sekeleton? <LoadingSkeleton/>:<div className='elementcontainer'>
+  
+     {sekeleton? <LoadingSkeleton/>:<div className='elementcontainer'>
         {
           products.slice().map((product,index)=>{
            // console.log(product.image)
@@ -61,7 +60,7 @@ setState(false)
 
           })
         }
-        </div>*/}
+        </div>}
     </div>
     </>
   )

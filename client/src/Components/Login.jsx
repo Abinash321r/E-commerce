@@ -14,7 +14,7 @@ function Login({stateHandler,routelocation}) {
   const [user,setUser]=useState({
    name:'Abinash Nepali',
    password:'#aZsXdC123',
-   phone:9856004040 
+   phone:'9856004040' 
   })
   const [validname,setValidName]=useState(true)
   const [validpassword,setValidPassword]=useState(true)
