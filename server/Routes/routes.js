@@ -28,7 +28,11 @@ router.get('/api',isAuthenticated,(req,res)=>{
 })
 
 router.get('/logout',(req,res)=>{
-   res.clearCookie("usertoken")
+   res.clearCookie("usertoken", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true, // change to true in production with HTTPS
+  })
     const data={
        isAuthenticated:false
     }
