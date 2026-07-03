@@ -16,7 +16,7 @@ const [validname,setValidName]=useState(true)
 
   const usernameRegex = /^[a-zA-Z]{2,}$/;
   const subjectRegex = /^[\w\d\s\S]{5,}$/;
-  const emailRegex= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const emailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const messageRegex = /^[\w\d\s\S]{10,}$/;
   const handlesubmit=(event)=>{
     event.preventDefault();
